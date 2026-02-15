@@ -1,0 +1,10 @@
+# Ignore model directory
+model/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.env

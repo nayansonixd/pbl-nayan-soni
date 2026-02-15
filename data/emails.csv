@@ -1,0 +1,64 @@
+text,label
+"Urgent: reset my password immediately",Urgent
+"Server is down please fix ASAP",Urgent
+"Payment failed kindly resolve quickly",Urgent
+"Your OTP expires in 2 minutes",Urgent
+"Security alert login attempt detected",Urgent
+"Client waiting for response urgently",Urgent
+"Immediate action required on invoice",Urgent
+"System outage reported in production",Urgent
+"Deadline extended please confirm today",Urgent
+"Important: account verification needed",Urgent
+"Please approve the request urgently",Urgent
+"Critical bug found in application",Urgent
+"Need quick clarification on contract",Urgent
+"High priority issue needs attention",Urgent
+"Time sensitive update regarding project",Urgent
+
+"Following up on our last discussion",Follow-up
+"Just checking if you saw my email",Follow-up
+"Reminder about tomorrow meeting",Follow-up
+"Can you provide update on the task",Follow-up
+"Looking forward to your response",Follow-up
+"Please confirm your availability",Follow-up
+"Sharing revised document for review",Follow-up
+"Gentle reminder for submission",Follow-up
+"Any update on the proposal shared",Follow-up
+"Resending details for your reference",Follow-up
+"Kindly review and revert back",Follow-up
+"Awaiting your feedback",Follow-up
+"Let's connect next week to discuss",Follow-up
+"Requesting status update",Follow-up
+"Reminder: pending approval required",Follow-up
+
+"Win a free iPhone now",Spam
+"Congratulations you won a lottery",Spam
+"Lowest prices on medicines buy now",Spam
+"Earn money from home easily",Spam
+"Click here to claim your prize",Spam
+"Exclusive deal limited time offer",Spam
+"Get rich quick with this trick",Spam
+"Hot investment opportunity today",Spam
+"Claim cashback instantly",Spam
+"Limited offer act now",Spam
+"Free vacation package available",Spam
+"Cheap loans approved instantly",Spam
+"Buy followers instantly",Spam
+"Double your income now",Spam
+"Special discount click here",Spam
+
+"Monthly performance report attached",Informational
+"Invoice for last month attached",Informational
+"Company holiday calendar shared",Informational
+"Meeting agenda for tomorrow",Informational
+"Updated policy document enclosed",Informational
+"Welcome to our platform",Informational
+"Newsletter for this month",Informational
+"Your subscription confirmation",Informational
+"Event schedule attached",Informational
+"New feature release announcement",Informational
+"Payment receipt attached",Informational
+"System maintenance notification",Informational
+"Training session details enclosed",Informational
+"Project documentation shared",Informational
+"Team update for this week",Informational
