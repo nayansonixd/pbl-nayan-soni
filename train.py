@@ -4,13 +4,12 @@ import re
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import accuracy_score, classification_report
 
 import pickle
 
 nltk.download('stopwords')
-
 from nltk.corpus import stopwords
 
 stop_words = stopwords.words('english')
@@ -27,7 +26,7 @@ df = pd.read_csv("data/emails.csv")
 
 df['cleaned'] = df['text'].apply(clean_text)
 
-vectorizer = TfidfVectorizer()
+vectorizer = TfidfVectorizer(ngram_range=(1,2), max_features=1000)
 X = vectorizer.fit_transform(df['cleaned'])
 y = df['label']
 
@@ -38,14 +37,13 @@ X_train, X_test, y_train, y_test = train_test_split(
     stratify=y
 )
 
-
-model = LogisticRegression(max_iter=1000)
+model = MultinomialNB()
 model.fit(X_train, y_train)
-from sklearn.metrics import classification_report
-print(classification_report(y_test, model.predict(X_test)))
 
+y_pred = model.predict(X_test)
 
-print("Accuracy:", accuracy_score(y_test, model.predict(X_test)))
+print(classification_report(y_test, y_pred))
+print("Accuracy:", accuracy_score(y_test, y_pred))
 
 pickle.dump(model, open("model/email_model.pkl", "wb"))
 pickle.dump(vectorizer, open("model/vectorizer.pkl", "wb"))
