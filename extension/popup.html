@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Classifier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ── Header ─────────────────────────────────────────────────────────── -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-ring">
+        <span class="logo-emoji">✉️</span>
+      </div>
+      <div class="logo-text">
+        <h1 class="app-title">Email Classifier</h1>
+        <p class="app-sub">Powered by DistilBERT</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Backend Status ─────────────────────────────────────────────────── -->
+  <div class="status-bar" id="statusBar">
+    <div class="status-dot" id="statusDot"></div>
+    <span id="statusText" class="status-text">Checking backend…</span>
+    <button class="status-retry" id="btnRetry" title="Retry connection">↻</button>
+  </div>
+
+  <!-- ── Main Card ──────────────────────────────────────────────────────── -->
+  <div class="card">
+
+    <!-- Gmail auto-detect -->
+    <div class="section">
+      <div class="section-label">
+        <span class="badge badge-gmail">Gmail</span>
+        <span>Auto-detect open email</span>
+      </div>
+      <button class="btn btn-gmail" id="btnDetect">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        Detect from Gmail
+      </button>
+    </div>
+
+    <!-- Divider -->
+    <div class="or-divider"><span>or paste manually</span></div>
+
+    <!-- Manual input -->
+    <div class="section">
+      <div class="section-label">
+        <span class="badge badge-manual">Manual</span>
+        <span>Paste email text below</span>
+      </div>
+      <textarea
+        id="emailInput"
+        class="textarea"
+        placeholder="Paste your email content here…&#10;&#10;Example:&#10;Subject: Python Script Error&#10;I'm getting an AttributeError when calling model.predict()…"
+        rows="6"
+      ></textarea>
+      <button class="btn btn-primary" id="btnClassify">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+        </svg>
+        Classify Email
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Loading ────────────────────────────────────────────────────────── -->
+  <div class="loading-wrap" id="loading" style="display:none">
+    <div class="spinner"></div>
+    <span>Classifying…</span>
+  </div>
+
+  <!-- ── Error ──────────────────────────────────────────────────────────── -->
+  <div class="err-card" id="errCard" style="display:none">
+    <svg class="err-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
+      <line x1="12" y1="16" x2="12.01" y2="16"/>
+    </svg>
+    <span id="errText">Something went wrong.</span>
+  </div>
+
+  <!-- ── Result ─────────────────────────────────────────────────────────── -->
+  <div class="result-card" id="resultCard" style="display:none">
+
+    <!-- Top row: icon + category + confidence badge -->
+    <div class="result-top">
+      <div class="result-icon-wrap" id="resultIconWrap">
+        <span id="resultIcon">📂</span>
+      </div>
+      <div class="result-info">
+        <div class="result-label-text">Predicted Category</div>
+        <div class="result-category" id="resultCategory">—</div>
+      </div>
+      <div class="conf-pill" id="confPill">0%</div>
+    </div>
+
+    <!-- Confidence bar -->
+    <div class="conf-track">
+      <div class="conf-fill" id="confFill" style="width:0%"></div>
+    </div>
+    <div class="conf-caption">
+      Confidence: <strong id="confPct">0%</strong>
+    </div>
+
+    <!-- All category scores -->
+    <div class="scores-title">All Category Scores</div>
+    <div class="scores-list" id="scoresList"></div>
+
+  </div>
+
+</div><!-- .container -->
+
+<script src="popup.js"></script>
+</body>
+</html>
